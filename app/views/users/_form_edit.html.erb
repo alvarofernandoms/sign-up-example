@@ -11,6 +11,12 @@
     </div>
   <% end %>
 
+  <% if flash[:user_update_error] %>
+    <div class="d-block invalid-feedback">
+      <h5><%= flash[:user_update_error].first %></h5>
+    </div>
+  <% end %>
+
   <div class="field">
     <%= form.label :username %>
     <%= form.text_field :username, required: true, minlength: "5" %>
@@ -18,12 +24,22 @@
 
   <div class="field">
     <%= form.label :email %>
-    <%= form.text_field :email, type: "email", disabled: true %>
+    <%= form.text_field :email, required: true, type: "email", disabled: true %>
   </div>
 
   <div class="field">
-    <%= form.label :password_digest %>
-    <%= form.text_field :password_digest, required: true, type: "password", minlength: "8" %>
+    <%= form.label :old_password %>
+    <%= form.text_field :old_password, type: "password", minlength: "8" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password %>
+    <%= form.text_field :password, type: "password", minlength: "8" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password_confirmation %>
+    <%= form.text_field :password_confirmation, type: "password", minlength: "8" %>
   </div>
 
   <div class="actions">

@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  has_secure_password
+
+  attr_accessor :old_password
+
   validates :email, presence: true
   validates :email, uniqueness: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
