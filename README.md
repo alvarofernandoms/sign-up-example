@@ -24,10 +24,10 @@
 - Database creation:
   - `rake db:create`
 
-- Database initialization (the seeds script will need the kalibro configurations service running):
+- Database initialization:
   - `rake db:setup`
 
-- Run the server
+- Run the server:
   - `rails server`
 
 ### How to run the test suite
