@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= form.label :username %>
-    <%= form.text_field :username %>
+    <%= form.text_field :username, required: true, minlength: "5" %>
   </div>
 
   <div class="field">
     <%= form.label :email %>
-    <%= form.text_field :email, required: true, type: "email" %>
+    <%= form.text_field :email, type: "email", disabled: true %>
   </div>
 
   <div class="field">
