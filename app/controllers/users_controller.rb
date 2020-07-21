@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[update destroy]
+  before_action :set_user, only: %i[destroy]
 
   before_action :authorize, only: %i[show edit update]
 
@@ -71,6 +71,42 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def password_reset_request
+    user = User.find_by_email(params[:email])
+    redirect_to '/login', alert: 'Sorry, there is no user with this e-mail!' unless user
+
+    user.token = SecureRandom.uuid
+    user.token_created_at = DateTime.now
+    user.save!
+    UserMailer.with(user: user).recovery_email.deliver_later
+    redirect_to '/login', notice: 'We send you an e-mail with the password recovery instructions.'
+  end
+
+  def recovery
+    return redirect_to '/login', alert: 'Invalid token' unless params[:token]
+
+    @user = User.find_by(token: params[:token])
+    return redirect_to '/login', alert: 'Invalid token' unless @user
+
+    unless @user.token_created_at + 6.hours > DateTime.now
+      redirect_to '/login', alert: 'Token expired. Please request the password reset again.'
+    end
+    @user
+  end
+
+  def update_password
+    @user = User.find_by_email(user_params[:email])
+    if @user.update(user_params)
+      @user.token = nil
+      @user.token_created_at = nil
+      @user.save!
+      redirect_to '/login', notice: 'Password update.'
+    else
+      flash[:user_update_errors] = @user.errors.full_messages
+      redirect_to recovery_url(token: @user.token)
     end
   end
 

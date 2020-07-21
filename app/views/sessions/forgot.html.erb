@@ -1,0 +1,14 @@
+<h1>Forgot your password?</h1>
+
+<p id="notice">Enter here with your e-mail. We will send you the instructions to reset your password! 😃</p>
+
+<%= form_tag forgot_path do %>
+  <div class="field">
+    <%= label_tag :email %><br />
+    <%= text_field_tag :email, params[:email], type: "email" %>
+  </div>
+  <div class="actions"><%= submit_tag "Send Password Recovery E-mail" %></div>
+<% end %>
+
+<%= link_to 'Back to login', login_url %> |
+<%= link_to 'Sign up', signup_url %>
