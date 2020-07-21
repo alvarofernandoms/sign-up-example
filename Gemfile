@@ -43,6 +43,9 @@ group :development do
 
   # Rubocop for static code analizer
   gem 'rubocop', require: false
+
+  # Development SMTP open e-mail on browser
+  gem 'letter_opener'
 end
 
 group :test do
@@ -55,6 +58,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '~> 4.0.1'
+  gem 'dotenv-rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

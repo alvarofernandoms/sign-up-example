@@ -33,6 +33,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        UserMailer.with(user: @user).welcome_email.deliver_later
         session[:user_id] = @user.id
         format.html { redirect_to '/profile', notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }

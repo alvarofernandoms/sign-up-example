@@ -27,6 +27,9 @@
 - Database initialization:
   - `rake db:setup`
 
+- Copy the file `.env.sample` to your project directory:
+  - `cp .env.sample .env`
+
 - Run the server:
   - `rails server`
 
