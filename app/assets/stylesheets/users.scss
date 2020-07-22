@@ -1,3 +1,86 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.header {
+  height: 280px;
+  padding-top: 124px;
+  position: relative;
+  box-sizing: border-box;
+  background: linear-gradient(to right, #64c8cd, #149fd2);
+  h1 {
+    margin: 0 10vw;
+    color: #fff;
+    font-family: "Nunito Sans", sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .btn-info {
+    margin: 20px 10vw;
+  }
+}
+
+.form-container {
+  margin: 80px 10vw 0;
+  .field {
+    color: #606366;
+    font-size: 16px;
+    line-height: 1;
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-family: "Nunito Sans", sans-serif;
+    label {
+      margin-bottom: 25px;
+    }
+    input.input-form {
+      padding: 18px;
+      background-color: #eff2f5;
+      border-style: none;
+      width: 100%;
+      max-width: 720px;
+      font-size: 16px;
+    }
+  }
+  .submit-button {
+    background: linear-gradient(to right, #64c8cd, #3cb3d0);
+    border-style: none;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    height: 90px;
+    letter-spacing: 0.1em;
+    line-height: 1;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: box-shadow 0.75s cubic-bezier(0.215, 0.61, 0.355, 1);
+    min-width: 300px;
+    z-index: 0;
+  }
+  p {
+    letter-spacing: 0.05em;
+    color: #606366;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 18px;
+    line-height: 1;
+    margin-bottom: 18px;
+    margin-top: 0;
+    font-weight: 400;
+    strong {
+      font-size: 26px;
+    }
+  }
+}
+.link {
+  font-size: 20px;
+  margin: 30px 0 60px;
+  .btn {
+    margin-right: 22px;
+  }
+}

@@ -1,5 +1,7 @@
-<h1>Sign up Page</h1>
-
-<%= render 'form', user: @user %>
-
-<%= link_to 'Back to Login', login_url %>
+<%= render 'header', title: "Sign Up Page" %>
+<div class="form-container">
+  <%= render 'form', user: @user %>
+  <div class="link">
+    <%= link_to 'Back to Login', login_url, class: "btn btn-info" %>
+  </div>
+</div>

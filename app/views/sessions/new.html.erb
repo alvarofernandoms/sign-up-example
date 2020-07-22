@@ -1,19 +1,20 @@
-<h1>Log In</h1>
-
-<p id="alert"><%= alert %></p>
-<p id="notice"><%= notice %></p>
-
-<%= form_tag sessions_path do %>
-  <div class="field">
-    <%= label_tag :email %><br />
-    <%= text_field_tag :email, params[:email], type: "email" %>
+<%= render 'users/header', title: "Login page" %>
+<div class="form-container">
+  <p id="alert"><%= alert %></p>
+  <p id="notice"><%= notice %></p>
+  <%= form_tag sessions_path do %>
+    <div class="field">
+      <%= label_tag :email %><br />
+      <%= text_field_tag :email, params[:email], type: "email", class: "input-form" %>
+    </div>
+    <div class="field">
+      <%= label_tag :password %><br />
+      <%= password_field_tag :password, nil, class: "input-form" %>
+    </div>
+    <div class="actions"><%= submit_tag "Login", class: "submit-button" %></div>
+  <% end %>
+  <div class="link">
+    <%= link_to 'Sign up', signup_url, class: "btn btn-info" %>
+    <%= link_to 'Forgot your password?', forgot_url, class: "btn btn-info" %>
   </div>
-  <div class="field">
-    <%= label_tag :password %><br />
-    <%= password_field_tag :password %>
-  </div>
-  <div class="actions"><%= submit_tag "Log In" %></div>
-<% end %>
-
-<%= link_to 'Sign up', signup_url %> |
-<%= link_to 'Forgot your password?', forgot_url %>
+</div>

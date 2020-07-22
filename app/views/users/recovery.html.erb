@@ -1,27 +1,26 @@
-<h1>Reset Password</h1>
-
-<% if flash[:user_update_errors] %>
-  <div class="d-block invalid-feedback">
-    <h5><%= flash[:user_update_errors].first %></h5>
+<%= render 'users/header', title: "Reset Password" %>
+<div class="form-container">
+  <% if flash[:user_update_errors] %>
+    <div class="d-block invalid-feedback">
+      <h5><%= flash[:user_update_errors].first %></h5>
+    </div>
+  <% end %>
+  <%= form_with(model: @user, url: recovery_update_path) do |form| %>
+    <%= form.hidden_field(:email, value: @user.email) %>
+    <div class="field">
+      <%= form.label :password %>
+      <%= form.text_field :password, type: "password", minlength: "8", class: "input-form" %>
+    </div>
+    <div class="field">
+      <%= form.label :password_confirmation %>
+      <%= form.text_field :password_confirmation, type: "password", minlength: "8", class: "input-form" %>
+    </div>
+    <div class="actions">
+      <%= form.submit "reset password", class: "submit-button" %>
+    </div>
+  <% end %>
+  <div class="link">
+    <%= link_to 'Back to login', login_url, class: "btn btn-info" %>
+    <%= link_to 'Sign up', signup_url, class: "btn btn-info" %>
   </div>
-<% end %>
-
-<%= form_with(model: @user, url: recovery_update_path) do |form| %>
-
-   <%= form.hidden_field(:email, value: @user.email) %>
-   <div class="field">
-    <%= form.label :password %>
-    <%= form.text_field :password, type: "password", minlength: "8" %>
-  </div>
-
-  <div class="field">
-    <%= form.label :password_confirmation %>
-    <%= form.text_field :password_confirmation, type: "password", minlength: "8" %>
-  </div>
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
-
-<%= link_to 'Back to login', login_url %> |
-<%= link_to 'Sign up', signup_url %>
+</div>

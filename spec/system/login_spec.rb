@@ -8,7 +8,7 @@ RSpec.describe 'Login flow', type: :system do
 
   it 'should login with email and password' do
     visit '/login'
-    expect(page).to have_content('Log In')
+    expect(page).to have_content('Login')
     expect(page).to have_content('Email')
     expect(page).to have_content('Password')
   end
@@ -18,7 +18,7 @@ RSpec.describe 'Login flow', type: :system do
 
     fill_in 'Email', with: 'test1@test.com'
     fill_in 'Password', with: '123123123'
-    click_button 'Log In'
+    click_button 'Login'
     expect(page).to have_current_path('/profile')
   end
 end

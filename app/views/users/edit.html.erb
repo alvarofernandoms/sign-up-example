@@ -1,6 +1,7 @@
-<h1>Editing User</h1>
-
-<%= render 'form_edit', user: @user %>
-
-<%= link_to 'Back to profile', '/profile' %> |
-<%= link_to 'Logout', logout_url %>
+<%= render 'header', title: "Edit Page" %>
+<div class="form-container">
+  <%= render 'form_edit', user: @user %>
+  <div class="link">
+    <%= link_to 'Back to profile', '/profile', class: "btn btn-info" %>
+  </div>
+</div>

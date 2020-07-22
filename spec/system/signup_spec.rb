@@ -7,7 +7,7 @@ RSpec.describe 'Sign up flow', type: :system do
 
   it 'should sign up an user with email, password and password confirmation' do
     visit '/signup'
-    expect(page).to have_content('Sign up Page')
+    expect(page).to have_content('Sign Up Page')
     expect(page).to have_content('Email')
     expect(page).to have_content('Password')
     expect(page).to have_content('Password confirmation')

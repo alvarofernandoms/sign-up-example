@@ -19,25 +19,25 @@
 
   <div class="field">
     <%= form.label :username %>
-    <%= form.text_field :username, required: true, minlength: "5" %>
+    <%= form.text_field :username, required: true, minlength: "5", class: "input-form" %>
   </div>
 
   <div class="field">
     <%= form.label :email %>
-    <%= form.text_field :email, required: true, type: "email", disabled: true %>
+    <%= form.text_field :email, required: true, type: "email", disabled: true, class: "input-form" %>
   </div>
 
   <div class="field">
     <%= form.label :password %>
-    <%= form.text_field :password, type: "password", minlength: "8" %>
+    <%= form.text_field :password, type: "password", minlength: "8", class: "input-form" %>
   </div>
 
   <div class="field">
     <%= form.label :password_confirmation %>
-    <%= form.text_field :password_confirmation, type: "password", minlength: "8" %>
+    <%= form.text_field :password_confirmation, type: "password", minlength: "8", class: "input-form" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "submit-button" %>
   </div>
 <% end %>

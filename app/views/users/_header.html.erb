@@ -1,0 +1,6 @@
+<div class="header">
+  <h1><%= title %></h1>
+  <% if current_user %>
+    <%= link_to 'Logout', logout_url, class: "btn btn-info" %>
+  <% end %>
+</div>

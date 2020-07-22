@@ -1,14 +1,15 @@
-<h1>Forgot your password?</h1>
-
-<p id="notice">Enter here with your e-mail. We will send you the instructions to reset your password! 😃</p>
-
-<%= form_tag forgot_path do %>
-  <div class="field">
-    <%= label_tag :email %><br />
-    <%= text_field_tag :email, params[:email], type: "email" %>
+<%= render 'users/header', title: "Forgot your password?" %>
+<div class="form-container">
+  <p id="notice">Enter here with your e-mail. We will send you the instructions to reset your password! 😃</p>
+  <%= form_tag forgot_path do %>
+    <div class="field">
+      <%= label_tag :email %><br />
+      <%= text_field_tag :email, params[:email], type: "email", class: "input-form" %>
+    </div>
+    <div class="actions"><%= submit_tag "Send Password Recovery E-mail", class: "submit-button" %></div>
+  <% end %>
+  <div class="link">
+    <%= link_to 'Back to login', login_url, class: "btn btn-info" %>
+    <%= link_to 'Sign up', signup_url, class: "btn btn-info" %>
   </div>
-  <div class="actions"><%= submit_tag "Send Password Recovery E-mail" %></div>
-<% end %>
-
-<%= link_to 'Back to login', login_url %> |
-<%= link_to 'Sign up', signup_url %>
+</div>

@@ -1,16 +1,15 @@
-<h1>Profile Page</h1>
-
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<%= link_to 'Edit', 'profile/edit' %> |
-<%= link_to 'Logout', logout_url %>
+<%= render 'header', title: "Profile Page" %>
+<div class="form-container">
+  <p id="notice"><%= notice %></p>
+  <p>
+    <strong>Username:</strong>
+    <%= @user.username %>
+  </p>
+  <p>
+    <strong>Email:</strong>
+    <%= @user.email %>
+  </p>
+  <div class="link">
+    <%= link_to 'Edit', 'profile/edit', class: "btn btn-info" %>
+  </div>
+</div>
